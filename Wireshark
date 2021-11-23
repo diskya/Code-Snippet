@@ -1,0 +1,11 @@
+How to list all the DNS domains?
+Queries: assets.msn.com: type A, class IN
+how to get all the domains of all queries as a list?
+
+This is a classic case for using tshark with the -T fields option. With a display filter set so that only answers are shown:
+tshark -r <yourcapture> -Y "dns.count.answers > 0" -T fields -e dns.qry.name -e dns.resp.name
+replacing <yourcapture> with the path to the capture file.
+
+Output looks like this, with first the query, then the answer(s):
+az667904.vo.msecnd.net  az667904.vo.msecnd.net,az667904-pme.azureedge.net,az667904-pme.ec.azureedge.net,cs9.wpc.v0cdn.net
+Note in this case there were multiple answer records for the query, all comma separated.
