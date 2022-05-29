@@ -1,4 +1,3 @@
-```
 Linux and Bash Command Cheat Sheet: The Basics
 Getting information
 # return your user name
@@ -231,4 +230,4 @@ Close the crontab editor and save the file
 
 # list all cron jobs
 crontab -l
-```
+  
